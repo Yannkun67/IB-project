@@ -1,7 +1,7 @@
 loop = 0
 maxtemp = 0
 lowtemp = 100
-tempincrease = 100
+tempincrease = 0
 tot = 0
 prevtemp = 100
 temp = float(0)
@@ -21,6 +21,7 @@ while line != "":
         tot = tot + line
         if line > prevtemp:
             tempincrease = tempincrease + 1
+            prevtemp = line
         else:
             prevtemp = line
 
