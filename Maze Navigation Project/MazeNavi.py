@@ -58,7 +58,7 @@ def MazeNavi():
             if not alr_visited:
                 visited.add(node)
 
-            if node == end_pos:
+            if node == end_pos: #if the node is the end position then it will print the path
                 short_path = []
                 temp_end_pos = end_pos
                 while temp_end_pos is not None:
@@ -74,9 +74,9 @@ def MazeNavi():
             row, col = node
             for row_offset, col_offset in [(-1, 0), (1, 0), (0, -1), (0, 1)]: #Checks up right and down (Needed chatgpt to help with makeing this as website was doing fro somehitng slightly different)
                 new_row, new_col = row + row_offset, col + col_offset #chatgpt helped with this whole part too
-                if 0 <= new_row < len(a_maze_map) and 0 <= new_col < len(a_maze_map[0]):
-                    if a_maze_map[new_row][new_col] != wall:
-                        if (new_row, new_col) not in visited:
+                if 0 <= new_row < len(a_maze_map) and 0 <= new_col < len(a_maze_map[0]): #checks if the new position is within bounds
+                    if a_maze_map[new_row][new_col] != wall: #checks if the new position is not a wall
+                        if (new_row, new_col) not in visited:#ensures that the position hasnt been visited
                             queue.append((new_row, new_col))
                             if (new_row, new_col) not in path:
                                 path[(new_row, new_col)] = (row, col)

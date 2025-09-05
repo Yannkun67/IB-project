@@ -9,15 +9,17 @@ def Spellcheck():
         for line in text: #loops through the file an puts it ito a list
             line = line.strip().lower()
             line = line.translate(str.maketrans('', '', string.punctuation)) #got chatgpt to help with this
-        for word in line.split():
-            words.append(word)
-            wcount = wcount + 1
+            for word in line.split():
+                words.append(word)
+                wcount = wcount + 1
+
+        misspelled_words = set()
         for word in words:
             if word not in dictionary:
-                print(word, "is misspelled")
-                misspelled = misspelled + 1
+               misspelled_words.add(word)
+
     print("Number of words checked:", wcount)
-    print ("Number of misspelled words:", misspelled)
+    print ("Number of misspelled words:", len(misspelled_words))
 
 
 
